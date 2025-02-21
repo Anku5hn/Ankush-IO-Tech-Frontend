@@ -18,7 +18,7 @@ const Home = () => {
     //functions
     const handleCreate = async () => {
         try{
-            await axios.post("https://ankush-io-tech-task.onrender.com/api/v1/create/add-text", {title: addTitle, discription: addDiscription});//endpoint for creating
+            await axios.post("https://io-tech-server.onrender.com/api/v1/create/add-text", {title: addTitle, discription: addDiscription});//endpoint for creating
             console.log("added")
         }catch(err){
             console.log(err);
@@ -27,14 +27,14 @@ const Home = () => {
     const handleEdit = async (value:any) =>{
         try{
             const iddata = value;
-            await axios.post("https://ankush-io-tech-task.onrender.com/api/v1/update/update-this",{iddata: iddata, payload: {title: editTitle, discription: editDiscription}});//endpoint for editing
+            await axios.post("https://io-tech-server.onrender.com/api/v1/update/update-this",{iddata: iddata, payload: {title: editTitle, discription: editDiscription}});//endpoint for editing
         }catch(err){
             console.log(err);
         }
     }
     const handleRead = async () =>{
         try{
-            const read = await axios.get("https://ankush-io-tech-task.onrender.com/api/v1/read/get-data");//endpoint for read
+            const read = await axios.get("https://io-tech-server.onrender.com/api/v1/read/get-data");//endpoint for read
             setReadText(read.data);
         }catch(err){
             console.log(err)
@@ -43,7 +43,7 @@ const Home = () => {
     const handleDelete = async (value:any)=>{
         const iddata = value;
         try{
-            await axios.post("https://ankush-io-tech-task.onrender.com/api/v1/delete/delete-this",{iddata: iddata});//endpoint for delete
+            await axios.post("https://io-tech-server.onrender.com/api/v1/delete/delete-this",{iddata: iddata});//endpoint for delete
             handleRead();
         }catch(err){
             console.log(err);
